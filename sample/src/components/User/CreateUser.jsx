@@ -13,7 +13,6 @@ export default function CreateUser() {
   const navigate = useNavigate();
 
   const users = useSelector((state) => state.users);
-
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
