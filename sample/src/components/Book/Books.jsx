@@ -14,14 +14,12 @@ export default function Books() {
   const handleDelete = (id) => {
     dispatch(deleteBook({ id: id }));
     navigate("/");
-
   };
-
 
   return (
     <div>
       <h1>Books</h1>
-      <Link to ='/addBook'>Add Book</Link>
+      <Link to="/addBook">Add Book</Link>
       {/* table to display books */}
       <table>
         <thead>
@@ -44,7 +42,7 @@ export default function Books() {
                 <td>
                   {/* <button>Edit</button> */}
                   <Link to={`/updateBook/${book.id}`}>Edit</Link>
-                  <button onClick={()=>handleDelete(book.id)}>Delete</button>
+                  <button onClick={() => handleDelete(book.id)}>Delete</button>
                 </td>
               </tr>
             );
