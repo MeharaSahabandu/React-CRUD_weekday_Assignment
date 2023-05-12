@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function Books() {
   const books = useSelector((state) => state.books);
@@ -7,6 +8,7 @@ export default function Books() {
   return (
     <div>
       <h1>Books</h1>
+      <Link to ='/addBook'>Add Book</Link>
       {/* table to display books */}
       <table>
         <thead>

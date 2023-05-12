@@ -1,5 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Users() {
   const users = useSelector((state) => state.users);
@@ -7,6 +9,7 @@ export default function Users() {
   return (
     <div>
       <h1>Users</h1>
+      <Link to ='/addUser'>Add User</Link>
       {/* table to display users */}
       <table>
         <thead>
