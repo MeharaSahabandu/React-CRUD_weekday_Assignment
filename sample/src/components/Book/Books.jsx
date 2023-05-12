@@ -1,9 +1,22 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { deleteBook } from "./BookReducer";
 
 export default function Books() {
   const books = useSelector((state) => state.books);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(deleteBook({ id: id }));
+    navigate("/");
+
+  };
+
 
   return (
     <div>
@@ -31,7 +44,7 @@ export default function Books() {
                 <td>
                   {/* <button>Edit</button> */}
                   <Link to={`/updateBook/${book.id}`}>Edit</Link>
-                  <button>Delete</button>
+                  <button onClick={()=>handleDelete(book.id)}>Delete</button>
                 </td>
               </tr>
             );
