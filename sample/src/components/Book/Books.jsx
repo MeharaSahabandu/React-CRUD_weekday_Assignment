@@ -25,11 +25,12 @@ export default function Books() {
             return (
               <tr key={index}>
                 <td>{book.id}</td>
-                <td>{book.name}</td>
+                <td>{book.bname}</td>
                 <td>{book.author}</td>
                 <td>{book.price}</td>
                 <td>
-                  <button>Edit</button>
+                  {/* <button>Edit</button> */}
+                  <Link to={`/updateBook/${book.id}`}>Edit</Link>
                   <button>Delete</button>
                 </td>
               </tr>

@@ -7,7 +7,7 @@ import {addBook} from "./BookReducer"
 
 
 export default function CreateBooks() {
-  const [name, setBookName] = useState("");
+  const [bname, setBookName] = useState("");
   const [author, setAuthor] = useState("");
   const [price, setPrice] = useState("");
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ export default function CreateBooks() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addBook({ id: books[books.length - 1].id + 1, name, author, price })
+    dispatch(addBook({ id: books[books.length - 1].id + 1, bname, author, price })
     );
     navigate("/");
   };
