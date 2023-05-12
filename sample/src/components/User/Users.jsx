@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function Users() {
   const users = useSelector((state) => state.users);
-  
+
   return (
     <div>
       <h1>Users</h1>
-      <Link to ='/addUser'>Add User</Link>
+      <Link to="/addUser">Add User</Link>
       {/* table to display users */}
       <table>
         <thead>
@@ -32,8 +32,8 @@ export default function Users() {
                 <td>{user.phone}</td>
                 <td>{user.books}</td>
                 <td>
-                <button>Edit</button>
-                <button>Delete</button>
+                  <Link to={`/updateUser/${user.id}`}>Edit</Link>
+                  <Link to={`/deleteUser/${user.id}`}>Delete</Link>
                 </td>
               </tr>
             );
