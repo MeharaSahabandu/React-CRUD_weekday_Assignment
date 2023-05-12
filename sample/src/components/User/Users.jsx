@@ -2,9 +2,20 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { deleteUser } from "./UserReducer";
 
 export default function Users() {
   const users = useSelector((state) => state.users);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(deleteUser({id:id}));
+    navigate("/");
+  };
 
   return (
     <div>
@@ -33,7 +44,8 @@ export default function Users() {
                 <td>{user.books}</td>
                 <td>
                   <Link to={`/updateUser/${user.id}`}>Edit</Link>
-                  <Link to={`/deleteUser/${user.id}`}>Delete</Link>
+                  {/* <Link to={`/deleteUser/${user.id}`}>Delete</Link> */}
+                  <button onClick={()=>handleDelete( user.id) }>Delete</button>
                 </td>
               </tr>
             );

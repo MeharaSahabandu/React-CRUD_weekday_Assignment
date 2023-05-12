@@ -18,9 +18,16 @@ const userSlice = createSlice({
         uu.books = books;
       }
     },
+
+    deleteUser: (state, action) => {
+      const { id } = action.payload;
+      const du = state.find((user) => user.id == id);
+      return state.filter((user) => user.id !== du.id);
+    },
   },
 });
 
 export default userSlice.reducer;
+export const { deleteUser } = userSlice.actions;
 export const { addUser } = userSlice.actions;
 export const { updateUser } = userSlice.actions;
