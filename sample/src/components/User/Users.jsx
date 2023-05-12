@@ -8,15 +8,12 @@ import { deleteUser } from "./UserReducer";
 
 export default function Users() {
   const users = useSelector((state) => state.users);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const handleDelete = (id) => {
     dispatch(deleteUser({id:id}));
     navigate("/");
   };
-
   return (
     <div>
       <h1>Users</h1>
@@ -31,7 +28,7 @@ export default function Users() {
             <th>Phone Number</th>
             <th>Books</th>
           </tr>
-        </thead>
+        </thead>  
         <tbody>
           {/* map through users and display them in the table */}
           {users.map((user, index) => {
